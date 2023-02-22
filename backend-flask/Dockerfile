@@ -3,6 +3,9 @@ FROM python:3.10-slim-buster
 # Make a new folder inside container
 WORKDIR /backend-flask
 
+# docker run --rm -p 4567:4567 -it -e FRONTEND_URL='*' -e BACKEND_URL='*' backend-flask
+
+
 # From outside container to inside the container
 # Contains the python libraries to be installed to run the app
 COPY requirements.txt requirements.txt

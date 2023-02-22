@@ -1,1 +1,2 @@
 # Week 1 — App Containerization
+At the time of writing this journal, I have gotten my frontend and backend running, the app is up, but without content. Currently trying to troubleshoot with a colleague after personal troubleshooting failed.

@@ -22,5 +22,15 @@ class NotificationsActivities:
         'created_at': (now - timedelta(days=2)).isoformat()
       }],
     },
+      {
+      'uuid': '66e12864-8c26-4c3a-9658-95a10f8fea67',
+      'handle':  'FauziyyahZak',
+      'message': 'Here is me exploring, and eventually being able to add an extra comment. :D',
+      'created_at': (now - timedelta(days=7)).isoformat(),
+      'expires_at': (now + timedelta(days=9)).isoformat(),
+      'likes': 60,
+      'replies_count': 120,
+      'replies': []
+    },
     ]
     return results

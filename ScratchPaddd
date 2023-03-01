@@ -44,3 +44,6 @@ aws budgets create-budget \
       "ReturnData": true
   }]
 }
+
+Week 2
+export HONEYCOMB_API_KEY="Gu1E7im81n6rea4q0w8AOA"

@@ -51,10 +51,10 @@ cors = CORS(
 
 @app.route("/api/message_groups", methods=['GET'])
 def data_message_groups():
-   user_handle  = 'andrewbrown'
-   model = MessageGroups.run(user_handle=user_handle)
+  user_handle  = 'andrewbrown'
+  model = MessageGroups.run(user_handle=user_handle)
   if model['errors'] is not None:
-   return model['errors'], 422
+    return model['errors'], 422
   else:
     return model['data'], 200
 

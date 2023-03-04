@@ -1,14 +1,14 @@
 # Week 2 — Distributed Tracing
 - As a user of codespaces, since I have run out Gitpod credits, I have saved my tokens and secrets in the Codespaces secret manager tab.
-- ![Secrets manager](Materials/Secrets manager.png)
+- ![Secrets manager](../Materials/Secrets manager.png)
 - I have also commented out env vars config that are specifically for Gitpod and replaced with those of Codespaces.
-- ![Codespaces env var config](Materials/Codespaces env var config.png)
+- ![Codespaces env var config](../Materials/Codespaces env var config.png)
 - I have instrumented Honeycomb with OTEL in my application.
-- ![Honeycomb](Materials/Honeycomb.png)
+- ![Honeycomb](../Materials/Honeycomb.png)
 - I have also experimented the instrumentation of AWS Xray, but disabled it for spend consideration.
-- ![AWS Xray](Materials/AWS Xray.png)
+- ![AWS Xray](../Materials/AWS Xray.png)
 - I have configured custom logger to send logs to cloudwatch.
-- [Cloudwatch log](Materials/Cloudwatch log.png)
+- [Cloudwatch log](../Materials/Cloudwatch log.png)
 - I have integrated rollbar.
-- [Rollbar Test](Materials/Rollbar Test.png)
+- [Rollbar Test](../Materials/Rollbar Test.png)
 - Copying codes from the resources to Codespaces somehow messes up my indentations, but I'm able to resolve them. I still currently have some lines under some of my codes indicating errors, but these are not affecting the functionality of my app.

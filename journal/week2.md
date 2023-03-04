@@ -1,6 +1,6 @@
 # Week 2 — Distributed Tracing
 - As a user of codespaces, since I have run out Gitpod credits, I have saved my tokens and secrets in the Codespaces secret manager tab.
-- ![Secrets manager](../Materials/"Secrets manager.png")
+- ![Secrets manager](../Materials/Secrets manager.png)
 - I have also commented out env vars config that are specifically for Gitpod and replaced with those of Codespaces.
 - ![Codespaces env var config](../Materials/Codespaces env var config.png)
 - I have instrumented Honeycomb with OTEL in my application.

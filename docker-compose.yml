@@ -28,24 +28,24 @@ services:
       REACT_APP_BACKEND_URL: "https://${CODESPACE_NAME}-4567.${GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN}"
       REACT_AWS_PROJECT_REGION: "${AWS_DEFAULT_REGION}"
       REACT_APP_AWS_COGNITO_REGION: "${AWS_DEFAULT_REGION}"
-      REACT_APP_AWS_USER_POOLS_ID: "us-east-1_0ZMOtxZ0w"
-      REACT_APP_CLIENT_ID: "65tqj3i50q6hehhe6u8km59eg7"
+      REACT_APP_AWS_USER_POOLS_ID: "us-east-1_TJQCBPDfY"
+      REACT_APP_CLIENT_ID: "7227e0nfgvg8vtvq7a3pijs5f2"
     build: ./frontend-react-js
     ports:
       - "3000:3000"
     volumes:
       - ./frontend-react-js:/frontend-react-js
 
-  xray-daemon:
-    image: "amazon/aws-xray-daemon"
-    environment:
-      AWS_ACCESS_KEY_ID: "${AWS_ACCESS_KEY_ID}"
-      AWS_SECRET_ACCESS_KEY: "${AWS_SECRET_ACCESS_KEY}"
-      AWS_REGION: "us-east-1"
-    command:
-      - "xray -o -b xray-daemon:2000"
-    ports:
-      - 2000:2000/udp
+  #xray-daemon:
+    #image: "amazon/aws-xray-daemon"
+    #environment:
+      #AWS_ACCESS_KEY_ID: "${AWS_ACCESS_KEY_ID}"
+      #AWS_SECRET_ACCESS_KEY: "${AWS_SECRET_ACCESS_KEY}"
+      #AWS_REGION: "us-east-1"
+    #command:
+      #- "xray -o -b xray-daemon:2000"
+    #ports:
+      #- 2000:2000/udp
 
 # the name flag is a hack to change the default prepend folder
 # name when outputting the image names

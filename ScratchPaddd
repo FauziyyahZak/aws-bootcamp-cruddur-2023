@@ -1,56 +1,19 @@
- #aws budgets create-budget \
-    --account-id $AWS_ACCOUNT_ID \
-    --budget file://aws/json/budget.json \
-    --notifications-with-subscribers file://aws/json/budget-notifications-with-subscribers.json
-
-    aws sns subscribe \
-    --topic-arn="arn:aws:sns:us-east-1:659615397328:billing-alarm" \
-    --protocol=email \
-    --notification-endpoint=fauziyyahzak@gmail.com
-
-    
-    {
-  "AlarmName": "DailyEstimatedCharges",
-  "AlarmDescription": "This alarm would be triggered if the daily estimated charges exceeds 1$",
-  "ActionsEnabled": true,
-  "AlarmActions": [
-      "arn:aws:sns:us-east-1:659615397328:billing-alarm"
-  ],
-  "EvaluationPeriods": 1,
-  "DatapointsToAlarm": 1,
-  "Threshold": 1,
-  "ComparisonOperator": "GreaterThanOrEqualToThreshold",
-  "TreatMissingData": "breaching",
-  "Metrics": [{
-      "Id": "m1",
-      "MetricStat": {
-          "Metric": {
-              "Namespace": "AWS/Billing",
-              "MetricName": "EstimatedCharges",
-              "Dimensions": [{
-                  "Name": "Currency",
-                  "Value": "USD"
-              }]
-          },
-          "Period": 86400,
-          "Stat": "Maximum"
-      },
-      "ReturnData": false
-  },
-  {
-      "Id": "e1",
-      "Expression": "IF(RATE(m1)>0,RATE(m1)*86400,0)",
-      "Label": "DailyEstimatedCharges",
-      "ReturnData": true
-  }]
-}
-
-Week 2
-export HONEYCOMB_API_KEY="Gu1E7im81n6rea4q0w8AOA"
-
-
-REACT_AWS_PROJECT_REGION
-REACT_APP_AWS_COGNITO_IDENTITY_POOL_ID
-REACT_APP_AWS_COGNITO_REGION
-REACT_APP_AWS_USER_POOLS_ID
-REACT_APP_CLIENT_ID
+aws rds create-db-instance \
+  --db-instance-identifier cruddur-db-instance \
+  --db-instance-class db.t3.micro \
+  --engine postgres \
+  --engine-version  14.6 \
+  --master-username cruddurroot \
+  --master-user-password FauziyyaHH \
+  --allocated-storage 20 \
+  --availability-zone us-east-1a \
+  --backup-retention-period 0 \
+  --port 5432 \
+  --no-multi-az \
+  --db-name cruddur \
+  --storage-type gp2 \
+  --publicly-accessible \
+  --storage-encrypted \
+  --enable-performance-insights \
+  --performance-insights-retention-period 7 \
+  --no-deletion-protection

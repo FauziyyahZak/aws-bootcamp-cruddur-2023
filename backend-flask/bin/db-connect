@@ -1,4 +1,4 @@
 #! /usr/bin/bash
 
 
-psql $URL
+psql $CONNECTION_URL

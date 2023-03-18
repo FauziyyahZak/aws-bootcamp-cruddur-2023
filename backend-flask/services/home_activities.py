@@ -16,7 +16,7 @@ class HomeActivities:
 
      
       sql = query_wrap_array("""
-    SELECT
+        SELECT
       activities.uuid,
       users.display_name,
       users.handle,

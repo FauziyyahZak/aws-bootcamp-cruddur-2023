@@ -17,28 +17,28 @@ from services.show_activity import *
 from lib.cognito_jwt_token import CognitoJwtToken, extract_access_token, TokenVerifyError
 
 #Honeycomb
-from opentelemetry import trace
-from opentelemetry.instrumentation.flask import FlaskInstrumentor
-from opentelemetry.instrumentation.requests import RequestsInstrumentor
-from opentelemetry.exporter.otlp.proto.http.trace_exporter import OTLPSpanExporter
-from opentelemetry.sdk.trace import TracerProvider
-from opentelemetry.sdk.trace.export import BatchSpanProcessor
-from opentelemetry.sdk.trace.export import ConsoleSpanExporter, SimpleSpanProcessor
+#from opentelemetry import trace
+#from opentelemetry.instrumentation.flask import FlaskInstrumentor
+#from opentelemetry.instrumentation.requests import RequestsInstrumentor
+#from opentelemetry.exporter.otlp.proto.http.trace_exporter import OTLPSpanExporter
+#from opentelemetry.sdk.trace import TracerProvider
+#from opentelemetry.sdk.trace.export import BatchSpanProcessor
+#from opentelemetry.sdk.trace.export import ConsoleSpanExporter, SimpleSpanProcessor
 
 #Xray
 #from aws_xray_sdk.core import xray_recorder
 #from aws_xray_sdk.ext.flask.middleware import XRayMiddleware
 
 #Cloudwatch Logs
-import watchtower
-import logging
-from time import strftime
+#import watchtower
+#import logging
+#from time import strftime
 
 #ROLLBAR
-import os
-import rollbar
-import rollbar.contrib.flask
-from flask import got_request_exception
+#import os
+#import rollbar
+#import rollbar.contrib.flask
+#from flask import got_request_exception
 
 # Configuring Logger to Use CloudWatch
 #LOGGER = logging.getLogger(__name__)
@@ -51,9 +51,9 @@ from flask import got_request_exception
 
 #Honeycomb
 # Initialize tracing and an exporter that can send data to Honeycomb
-provider = TracerProvider()
-processor = BatchSpanProcessor(OTLPSpanExporter())
-provider.add_span_processor(processor)
+#provider = TracerProvider()
+#processor = BatchSpanProcessor(OTLPSpanExporter())
+#provider.add_span_processor(processor)
 
 
 # Xray
@@ -61,11 +61,11 @@ provider.add_span_processor(processor)
 #xray_recorder.configure(service='backend-flask', dynamic_naming=xray_url)
 
 # Show this in the logs within the backend flask
-simple_processor = SimpleSpanProcessor(ConsoleSpanExporter())
-provider.add_span_processor(simple_processor)
+#simple_processor = SimpleSpanProcessor(ConsoleSpanExporter())
+#provider.add_span_processor(simple_processor)
 
-trace.set_tracer_provider(provider)
-tracer = trace.get_tracer(__name__)
+#trace.set_tracer_provider(provider)
+#tracer = trace.get_tracer(__name__)
 
 app = Flask(__name__)
 
@@ -80,8 +80,8 @@ cognito_jwt_token = CognitoJwtToken(
 
 #Honeycomb
 # Initialize automatic instrumentation with Flask
-FlaskInstrumentor().instrument_app(app)
-RequestsInstrumentor().instrument()
+#FlaskInstrumentor().instrument_app(app)
+#RequestsInstrumentor().instrument()
 
 #ROLLBAR
 rollbar_access_token = os.getenv('ROLLBAR_ACCESS_TOKEN')

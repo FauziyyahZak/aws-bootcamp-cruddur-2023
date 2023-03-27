@@ -7,3 +7,9 @@ gp env DB_SG_ID="sg-0a0107e1c49df5222"
 
 export DB_SG_RULE_ID="sgr-0cdb02fc500450560"
 gp env DB_SG_RULE_ID="sgr-0cdb02fc500450560"
+
+export HONEYCOMB_API_KEY="Gu1E7im81n6rea4q0w8AOA"
+gp env HONEYCOMB_API_KEY="Gu1E7im81n6rea4q0w8AOA"
+
+export HONEYCOMB_SERVICE_NAME="Cruddur"
+gp env HONEYCOMB_SERVICE_NAME="Cruddur"

@@ -28,13 +28,13 @@ from opentelemetry.sdk.trace.export import BatchSpanProcessor
 from opentelemetry.sdk.trace.export import ConsoleSpanExporter, SimpleSpanProcessor
 
 #Xray
-#from aws_xray_sdk.core import xray_recorder
-#from aws_xray_sdk.ext.flask.middleware import XRayMiddleware
+from aws_xray_sdk.core import xray_recorder
+from aws_xray_sdk.ext.flask.middleware import XRayMiddleware
 
 #Cloudwatch Logs
-#import watchtower
-#import logging
-#from time import strftime
+import watchtower
+import logging
+from time import strftime
 
 #ROLLBAR
 #import os
@@ -43,13 +43,13 @@ from opentelemetry.sdk.trace.export import ConsoleSpanExporter, SimpleSpanProces
 #from flask import got_request_exception
 
 # Configuring Logger to Use CloudWatch
-#LOGGER = logging.getLogger(__name__)
-#LOGGER.setLevel(logging.DEBUG)
-#console_handler = logging.StreamHandler()
-# cw_handler = watchtower.CloudWatchLogHandler(log_group='cruddur')
-#LOGGER.addHandler(console_handler)
-#LOGGER.addHandler(cw_handler)
-#LOGGER.info("test log")
+LOGGER = logging.getLogger(__name__)
+LOGGER.setLevel(logging.DEBUG)
+console_handler = logging.StreamHandler()
+cw_handler = watchtower.CloudWatchLogHandler(log_group='cruddur')
+LOGGER.addHandler(console_handler)
+LOGGER.addHandler(cw_handler)
+LOGGER.info("test log")
 
 #Honeycomb
 # Initialize tracing and an exporter that can send data to Honeycomb
@@ -59,8 +59,8 @@ provider.add_span_processor(processor)
 
 
 # Xray
-#xray_url = os.getenv("AWS_XRAY_URL")
-#xray_recorder.configure(service='backend-flask', dynamic_naming=xray_url)
+xray_url = os.getenv("AWS_XRAY_URL")
+xray_recorder.configure(service='backend-flask', dynamic_naming=xray_url)
 
 # Show this in the logs within the backend flask
 #simple_processor = SimpleSpanProcessor(ConsoleSpanExporter())
@@ -78,7 +78,7 @@ cognito_jwt_token = CognitoJwtToken(
 )
 
 #xray
-#XRayMiddleware(app, xray_recorder)
+XRayMiddleware(app, xray_recorder)
 
 #Honeycomb
 # Initialize automatic instrumentation with Flask
@@ -115,11 +115,11 @@ cors = CORS(
 )
 
 #Cloudwatch Logs
-#@app.after_request
-#def after_request(response):
-    #timestamp = strftime('[%Y-%b-%d %H:%M]')
-    #LOGGER.error('%s %s %s %s %s %s', timestamp, request.remote_addr, request.method, request.scheme, request.full_path, response.status)
-    #return response
+@app.after_request
+def after_request(response):
+    timestamp = strftime('[%Y-%b-%d %H:%M]')
+    LOGGER.error('%s %s %s %s %s %s', timestamp, request.remote_addr, request.method, request.scheme, request.full_path, response.status)
+    return response
 
 #ROLLBAR
 @app.route('/rollbar/test')

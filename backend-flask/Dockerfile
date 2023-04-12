@@ -18,7 +18,7 @@ RUN pip3 install -r requirements.txt
 COPY . .
 
 # Set env vars for when the container is running.
-ENV FLASK_ENV=development
+ENV FLASK_DEBUG=1
 
 EXPOSE ${PORT}
 

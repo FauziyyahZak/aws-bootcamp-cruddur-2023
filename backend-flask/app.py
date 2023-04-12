@@ -121,6 +121,10 @@ def after_request(response):
     LOGGER.error('%s %s %s %s %s %s', timestamp, request.remote_addr, request.method, request.scheme, request.full_path, response.status)
     return response
 
+@app.route('/api/health-check')
+def health_check():
+  return {'success': True}, 200
+
 #ROLLBAR
 @app.route('/rollbar/test')
 def rollbar_test():

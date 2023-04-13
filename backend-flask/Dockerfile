@@ -1,4 +1,4 @@
-FROM python:3.10-slim-buster
+FROM 685788318879.dkr.ecr.us-east-1.amazonaws.com/cruddur-python:3.10-slim-buster
 
 # Make a new folder inside container
 WORKDIR /backend-flask

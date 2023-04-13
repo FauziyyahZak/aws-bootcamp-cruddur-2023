@@ -1,3 +1,17 @@
 
 ECR_PYTHON_URL
 659615397328.dkr.ecr.us-east-1.amazonaws.com/cruddur-python
+
+
+   },
+        {
+            "Sid": "VisualEditor1",
+            "Effect": "Allow",
+            "Action": {
+                "ssm:GetParameters",
+                "ssm:GetParameter"
+            ],
+            "Resource": 
+
+
+            OTEL_EXPORTER_OTLP_HEADERS="x-honeycomb-team=${HONEYCOMB_API_KEY}"
